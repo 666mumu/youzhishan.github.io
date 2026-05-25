@@ -1,0 +1,53 @@
+/* --- 轮播图样式（匹配参考图） --- */
+
+#carouselExample {
+    height: 300px; /* 调整为参考图的高度 */
+    position: relative;
+    overflow: hidden;
+}
+
+#carouselExample .carousel-item img {
+    height: 300px; /* 图片高度与容器一致 */
+    object-fit: cover; /* 保持图片比例并覆盖容器 */
+}
+
+/* 轮播图文字说明样式（调整为参考图样式） */
+#carouselExample .carousel-caption {
+    position: absolute;
+    bottom: 20px; /* 文字位置调整为底部 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto; /* 宽度自适应内容 */
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景条 */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#carouselExample .carousel-caption h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#carouselExample .carousel-caption p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/* 隐藏左右切换按钮 */
+/* #carouselExample .carousel-control-prev,
+#carouselExample .carousel-control-next {
+    display: none;
+} */
+
+/* 隐藏指示器 */
+#carouselExample .carousel-indicators {
+    display: none;
+}
+
+/* 移除印章装饰 */
+#carouselExample::after {
+    content: none;
+}
