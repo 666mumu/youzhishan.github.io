@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工艺普及 - 泸州油纸伞非遗文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 悬浮看图特效，不改动任何原有内容 */
+        .card {
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+        .card .hover-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 100%;
+            left: 0;
+            /* 去除白色背景，完全透明，让图片直接铺满 */
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: top 0.4s ease;
+        }
+        .card:hover .hover-img {
+            top: 0;
+        }
+        .card .hover-img img {
+            /* 图片完全铺满卡片，无留白、无圆角、无白边 */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+<header class="site-header">
+  <div class="container header-inner">
+    <!-- Logo 区域 -->
+    <div class="logo">
+      <img src="img/youzhisan.jpg" alt="泸州油纸伞" class="logo-img">
+      <span class="logo-text">泸州油纸伞</span>
+    </div>
+
+    <!-- 导航菜单 -->
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html">首页总览</a></li>
+        <li><a href="works.html">作品展示</a></li>
+        <li><a href="master.html">传承人故事</a></li>
+        <li><a href="craft.html">工艺普及</a></li>
+        <li><a href="message.html" >留言互动</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="container">
+        <h2 class="title">传统非遗工艺普及</h2>
+        <div class="text-box">
+            <p>泸州油纸伞制作工艺是中国传统手工制伞技艺的集大成者，整套工艺包含上百道细碎工序，环环相扣、严谨精细，全程无机器替代、无化工原料，是纯天然、纯手工的传统技艺，每一道工序都承载着古人的匠心智慧。</p>
+        </div>
+
+        <div class="card-wrap">
+            <div class="card">
+                <h3>一、选竹制骨</h3>
+                <p>选用川南生长三年以上的优质慈竹，质地坚韧、韧性十足。经过截竹、劈竹、烘烤、矫形、打磨、开槽等多道工序，制作出均匀规整、不易变形的伞骨，是油纸伞成型的核心基础。</p>
+                <div class="hover-img"><img src="img/R-C.jpg" alt="选竹制骨"></div>
+            </div>
+            <div class="card">
+                <h3>二、裱糊伞面</h3>
+                <p>采用特制手工皮纸，纸质轻薄却坚韧耐撕。匠人以传统米糊为粘合剂，分层、均匀裱糊在伞骨之上，多层叠加、反复压实，保证伞面平整紧致，做到不透风、不漏水、不变形。</p>
+                <div class="hover-img"><img src="img/1112.png" alt="裱糊伞面"></div>
+            </div>
+            <div class="card">
+                <h3>三、天然刷油</h3>
+                <p>使用纯天然熟桐油，多次均匀涂刷伞面，自然风干。桐油具备极佳的防水、防晒、防腐效果，可让油纸伞经久耐用，同时赋予伞面温润透亮的天然光泽，无任何化学添加剂。</p>
+                <div class="hover-img"><img src="img/4444.jpg" alt="天然刷油"></div>
+            </div>
+            <div class="card">
+                <h3>四、手绘纹样</h3>
+                <p>待伞面干透后，匠人依据传统纹样或原创设计，手工手绘山水花鸟、吉祥图案、古风纹样。每一笔均为手工勾勒，纹样灵动自然，独一无二，赋予每把油纸伞专属的艺术生命力。</p>
+                <div class="hover-img"><img src="img/1114.png" alt="手绘纹样"></div>
+            </div>
+            <div class="card">
+                <h3>五、组装修边</h3>
+                <p>完成绘制后，进行伞柄、伞顶、伞穗组装，精细修边、打磨细节，检查开合松紧度，修正细微瑕疵，最终完成一把完整的古法泸州油纸伞制作。</p>
+                <div class="hover-img"><img src="img/1115.png" alt="组装修边"></div>
+            </div>
+            <div class="card">
+                <h3>工艺核心特点</h3>
+                <p>全程纯手工制作、天然环保材质、工序繁复严谨，兼具实用性与艺术性。区别于工业雨伞，每一把非遗油纸伞都是不可复制的手工艺术品。</p>
+                <div class="hover-img"><img src="img/899.jpg" alt="工艺特点"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        泸州油纸伞非遗文化网站 &amp;copy; 2026 非遗文化传承与推广
+    </footer>
+</body>
+</html>
