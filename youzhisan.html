@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言互动 - 泸州油纸伞非遗文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .message-form{
+            background:#fff;
+            padding:30px;
+            border-radius:8px;
+            box-shadow: 0 0 8px #eee;
+            margin-bottom:40px;
+        }
+        .message-form input,
+        .message-form textarea{
+            width:100%;
+            border:1px solid #ccc;
+            padding:10px;
+            margin:8px 0 20px;
+            border-radius:4px;
+            box-sizing: border-box;
+        }
+        .message-form button{
+            background:#222;
+            color:#fff;
+            border:none;
+            padding:10px 30px;
+            border-radius:4px;
+            cursor:pointer;
+        }
+        .message-form button:hover{
+            background:#444;
+        }
+        .msg-item{
+            background:#fff;
+            padding:20px;
+            border-radius:8px;
+            margin-bottom:15px;
+            box-shadow:0 0 6px #eee;
+        }
+        .msg-name{
+            font-weight:bold;
+            color:#b36b3c;
+        }
+        .msg-time{
+            font-size:12px;
+            color:#888;
+            margin:5px 0;
+        }
+        .empty-tip{
+            text-align:center;
+            color:#999;
+            padding:40px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+<header class="site-header">
+  <div class="container header-inner">
+    <!-- Logo 区域 -->
+    <div class="logo">
+      <img src="img/youzhisan.jpg" alt="泸州油纸伞" class="logo-img">
+      <span class="logo-text">泸州油纸伞</span>
+    </div>
+
+    <!-- 导航菜单 -->
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html">首页总览</a></li>
+        <li><a href="works.html">作品展示</a></li>
+        <li><a href="master.html">传承人故事</a></li>
+        <li><a href="craft.html">工艺普及</a></li>
+        <li><a href="message.html" >留言互动</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="container">
+        <h2 class="title">游客留言互动</h2>
+        <div class="text-box">
+            <p>欢迎各位游客、非遗爱好者在此留言交流，分享你对泸州油纸伞非遗文化的看法、感受与建议，共同助力传统非遗文化传播与传承。</p>
+        </div>
+
+        <!-- 留言提交区域 -->
+        <div class="message-form">
+            <h3>我要留言</h3>
+            <input type="text" id="username" placeholder="请输入你的昵称">
+            <textarea id="usermsg" rows="4" placeholder="请输入留言内容..."></textarea>
+            <button id="submit">提交留言</button>
+        </div>
+
+        <!-- 留言展示列表 -->
+        <h3 class="title" style="margin:20px 0;">全部留言</h3>
+        <div id="msglist"></div>
+    </div>
+
+    <!-- 底部 -->
+    <footer>
+        泸州油纸伞非遗文化网站 &copy; 2026 非遗文化传承与推广
+    </footer>
+
+    <script>
+        // 永远不会丢的留言存储（修复版）
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitBtn = document.getElementById('submit');
+            const msgList = document.getElementById('msglist');
+
+            // 读取留言
+            function getMessages() {
+                let data = localStorage.getItem('luzhouMsg');
+                return data ? JSON.parse(data) : [];
+            }
+
+            // 渲染留言
+            function renderMessages() {
+                const messages = getMessages();
+                msgList.innerHTML = '';
+
+                if (messages.length === 0) {
+                    msgList.innerHTML = '<div class="empty-tip">暂无留言，期待你的第一条留言！</div>';
+                    return;
+                }
+
+                messages.slice().reverse().forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'msg-item';
+                    div.innerHTML = `
+                        <div class="msg-name">${item.name}</div>
+                        <div class="msg-time">${item.time}</div>
+                        <div class="msg-content">${item.content}</div>
+                    `;
+                    msgList.appendChild(div);
+                });
+            }
+
+            // 提交留言
+            submitBtn.onclick = function() {
+                const name = document.getElementById('username').value.trim();
+                const content = document.getElementById('usermsg').value.trim();
+
+                if (!name || !content) {
+                    alert('昵称和留言内容不能为空！');
+                    return;
+                }
+
+                const messages = getMessages();
+                messages.push({
+                    name: name,
+                    content: content,
+                    time: new Date().toLocaleString()
+                });
+
+                localStorage.setItem('luzhouMsg', JSON.stringify(messages));
+                document.getElementById('username').value = '';
+                document.getElementById('usermsg').value = '';
+                renderMessages();
+            };
+
+            // 页面加载就渲染
+            renderMessages();
+        });
+    </script>
+</body>
+</html>
